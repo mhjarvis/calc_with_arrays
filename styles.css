@@ -1,0 +1,81 @@
+body {
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+}
+h1 {
+    text-align: center;
+    font-size: 4em;
+    color: white;
+}
+#container {
+    width: 500px;
+    height: 620px;
+    background-color: rgb(43, 41, 41);
+    margin: 0 auto;
+    border: 3px solid black;
+    border-radius: 8px;
+}
+#display {
+    width: 90%;
+    height: 100px;
+    background-color: rgb(110, 110, 107);
+    margin: auto;
+    margin-top: 25px;
+    border-radius: 4px;
+}
+#displayP {
+    color: white;
+    font-size: 4em;
+    text-align: right;
+    margin: 0 0 0 0;
+    padding-right: 10px;
+}
+#sub-display {
+    font-size: 1.5em;
+    text-align: right;
+    color: white;
+    margin: 0;
+    padding-right: 10px;
+    padding-top: 5px;
+    height: 1.1em;
+}
+#keypad {
+    text-align: center;
+    width: 90%;
+    height: 450px;
+    background-color: rgb(110, 110, 107);
+    margin: 20px auto 20px;
+    border-radius: 4px;
+}
+.calc-button {
+    display:inline-block;
+    width: 90px;
+    height: 70px;
+    margin: 17px 5px 0 5px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 6px;
+    align-items: center;
+    cursor: pointer;
+    font-size: 2em;
+}
+#clear {
+    width: 200px;
+    background-color: rgb(194, 62, 62);
+}
+#equals {
+    width: 200px;
+}
+#delete {
+    background-color: rgb(80, 136, 168);
+}
+#equals {
+    background-color: rgb(51, 172, 51);
+}
+#decimal {
+    background-color: rgb(130, 101, 211);
+}
+#add, #multiply, #divide, #subtract {
+    background-color: rgb(187, 119, 42);
+}

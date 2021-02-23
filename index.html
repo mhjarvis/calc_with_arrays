@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body></body>
+    <h1>Calculator</h1>
+    <div id="container">
+        <div id="display">
+            <p id="sub-display"></p>
+            <p id="displayP">0</p>
+        </div>
+        <div id="keypad">
+            <button class="calc-button" id="clear" onclick="clearAll()">Clear</button>
+            <button class="calc-button" id="delete" onclick="">Del</button>
+            <button class="calc-button" id="divide" onclick="createOperator('/')">/</button>
+
+            <button class="calc-button" onclick="createNumber(7)">7</button>
+            <button class="calc-button" onclick="createNumber(8)">8</button>
+            <button class="calc-button" onclick="createNumber(9)">9</button>
+            <button class="calc-button" id="multiply" onclick="createOperator('*')">*</button>
+
+            <button class="calc-button" onclick="createNumber(4)">4</button>
+            <button class="calc-button" onclick="createNumber(5)">5</button>
+            <button class="calc-button" onclick="createNumber(6)">6</button>
+            <button class="calc-button" id="subtract" onclick="createOperator('-')">-</button>
+            
+            <button class="calc-button" onclick="createNumber(1)">1</button>
+            <button class="calc-button" onclick="createNumber(2)">2</button>
+            <button class="calc-button" onclick="createNumber(3)">3</button>
+            <button class="calc-button" id="add" onclick="createOperator('+')">+</button>
+            
+            <button class="calc-button" id="decimal" onclick="">.</button>
+            <button class="calc-button" onclick="createNumber(0)">0</button>
+            <button class="calc-button" id="equals" onclick="">=</button>
+        </div>
+        <div id="math-functions">
+
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
