@@ -6,22 +6,25 @@ let opperator = '';
 let answer = '';
 
 const display = document.getElementById("display-main");
-const subDisplay = document.getElementById("sub-display");
+const error = document.getElementById("error");
+//const subDisplay = document.getElementById("sub-display"); //not used in this version
 
-function clearAll() {           //clear array and all variables
+/****************** function resets array and clears all variables *****************/
+function clearAll() {
     arr = [];
     number = '';
-    firstNumber = 0;
-    secondNumber = 0;
+    firstNumber = '';
+    secondNumber = '';
     opperator = '';
-    answer = 0;
-    display.textContent = 0;
+    answer = '';
+    display.textContent = '';
 }
 
-function deleteLast() {         //delete last integer from number variable
+/***************** function deletes the last input from display/array ******************/
+function deleteLast() {
     if(number.length > 0) {     //test if there is anything to delete
         number = number.slice(0, -1);
-        if(number == '') {      //if number is empty, display 0
+        if(number == '' && arr.length == 0) {      //if number & arr is empty, display 0
             display.textContent = 0;
             return;
         }
@@ -34,6 +37,7 @@ function deleteLast() {         //delete last integer from number variable
     }
 }
 
+/************** function tests whether the last arr member is a operator ************/
 function testForOperator() {
     let last = arr[arr.length - 1];
     if(last == '+' || last == '-' || last == '*' || last == '/')
@@ -42,10 +46,9 @@ function testForOperator() {
         return false;
 }
 
-
+/************** function takes num from input and creates running variable ************/
 function createNumber(num) {
     number += num;
-    //console.log(number);
     if(arr.length == 0) {               //only print number (since array is empty)
         display.textContent = number;
     } else {
@@ -53,13 +56,23 @@ function createNumber(num) {
     }
 }
 
+/********* function pushes number and operator to array and updates displays **********/
 function createOperator(char) {
-    if(number != '') {              //test for multiple opperator presses (push only opperator)
+    if(number == '') {              //test for multiple opperator presses (push only opperator)
+        display.textContent = 0;
+        error.textContent = "Error: Please enter a number first";
+    } else {
+        clearError();
         pushToArray(number);
-    }
-    pushToArray(char);
-    number = '';                    //reset number if added to array
-    printArray();                   
+        pushToArray(char);
+        number = '';                    //reset number if added to array
+        printArray();
+    }                 
+}
+
+/********* function clears error at bottom of screen ***********/
+function clearError() {
+    error.textContent = '';
 }
 
 function pushToArray(v) {
