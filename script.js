@@ -1,15 +1,47 @@
 let arr = [];
 let number = '';
+let firstNumber = '';
+let secondNumber = '';
+let opperator = '';
+let answer = '';
 
-const display = document.getElementById("displayP");
+const display = document.getElementById("display-main");
 const subDisplay = document.getElementById("sub-display");
 
-function clearAll() {
-    while(arr[0]) {
-        arr.pop();
-    }
+function clearAll() {           //clear array and all variables
+    arr = [];
+    number = '';
+    firstNumber = 0;
+    secondNumber = 0;
+    opperator = '';
+    answer = 0;
     display.textContent = 0;
 }
+
+function deleteLast() {         //delete last integer from number variable
+    if(number.length > 0) {     //test if there is anything to delete
+        number = number.slice(0, -1);
+        if(number == '') {      //if number is empty, display 0
+            display.textContent = 0;
+            return;
+        }
+        printArray();           //otherwise print the arr
+    } else if(number.length == 0 && !(testForOperator())) {     //test for operator
+        display.textContent = 0
+    } else {                    //if there is an operator, pop() the operator and display
+        arr.pop();              //the arr
+        printArray();
+    }
+}
+
+function testForOperator() {
+    let last = arr[arr.length - 1];
+    if(last == '+' || last == '-' || last == '*' || last == '/')
+        return true;
+    else
+        return false;
+}
+
 
 function createNumber(num) {
     number += num;
@@ -28,7 +60,6 @@ function createOperator(char) {
     pushToArray(char);
     number = '';                    //reset number if added to array
     printArray();                   
-
 }
 
 function pushToArray(v) {
@@ -43,13 +74,49 @@ function printArray() {
         str += arr[i];
     }
     display.textContent = str + number;
-    console.log(arr);
+    //console.log(arr);
 }
 
+function equals() {
+    arr.push(number);
+    number = '';
 
+    if(Number(arr[0]) && !Number(arr[1]) && Number(arr[2])) {
+        firstNumber = arr.shift();
+        opperator = arr.shift();
+        secondNumber = arr.shift();
+        answer = operate(opperator, firstNumber, secondNumber);
+        display.textContent = answer;        
+        console.log(arr);
+    } else {
+        firstNumber = answer;
+        secondNumber = arr.shift();
+        opperator = arr.shift();
+        answer = operate(opperator, firstNumber, secondNumber);
+        display.textContent = answer;
+    }
 
+}
 
+function operate(opp, a, b) {
+    a = Number(a);
+    b = Number(b);
 
+    switch(opperator) {
+        case '+':
+            return a + b;
+            break;
+        case '-':
+            return a - b;
+            break;
+        case '/':
+            return a / b;
+            break;
+        case '*':
+            return a * b;
+            break;
+    }
+}
 
 /*
 let tempNumber = '';
@@ -149,5 +216,32 @@ function operate(opp, a, b) {
             display.textContent = answer;
             break;
     }
+}
+*/
+
+/*
+function equals() {
+    arr.push(number);
+    number = '';
+
+    if(Number(arr[0]) && !Number(arr[1]) && Number(arr[2])) {
+        firstNumber = arr.shift();
+        opperator = arr.shift();
+        secondNumber = arr.shift();
+        answer = operate(opperator, firstNumber, secondNumber);
+        display.textContent = answer;        
+        //console.log(firstNumber);
+        //console.log(arr);
+        pushToArray(answer);
+        console.log(arr);
+    } else {
+        firstNumber = answer;
+        secondNumber = arr.shift();
+        opperator = arr.shift();
+        answer = operate(opperator, firstNumber, secondNumber);
+        display.textContent = answer;
+        pushToArray(answer);
+    }
+
 }
 */

@@ -17,14 +17,16 @@ h1 {
     border-radius: 8px;
 }
 #display {
-    width: 90%;
+    width: 440px;
     height: 100px;
     background-color: rgb(110, 110, 107);
     margin: auto;
     margin-top: 25px;
+    padding: 0 5px 0 5px;
     border-radius: 4px;
+    overflow: hidden;
 }
-#displayP {
+#display-main {
     color: white;
     font-size: 4em;
     text-align: right;

@@ -9,11 +9,11 @@
     <div id="container">
         <div id="display">
             <p id="sub-display"></p>
-            <p id="displayP">0</p>
+            <p id="display-main">0</p>
         </div>
         <div id="keypad">
             <button class="calc-button" id="clear" onclick="clearAll()">Clear</button>
-            <button class="calc-button" id="delete" onclick="">Del</button>
+            <button class="calc-button" id="delete" onclick="deleteLast()">Del</button>
             <button class="calc-button" id="divide" onclick="createOperator('/')">/</button>
 
             <button class="calc-button" onclick="createNumber(7)">7</button>
@@ -31,9 +31,9 @@
             <button class="calc-button" onclick="createNumber(3)">3</button>
             <button class="calc-button" id="add" onclick="createOperator('+')">+</button>
             
-            <button class="calc-button" id="decimal" onclick="">.</button>
+            <button class="calc-button" id="decimal" onclick="createNumber('.')">.</button>
             <button class="calc-button" onclick="createNumber(0)">0</button>
-            <button class="calc-button" id="equals" onclick="">=</button>
+            <button class="calc-button" id="equals" onclick="equals()">=</button>
         </div>
         <div id="math-functions">
 
