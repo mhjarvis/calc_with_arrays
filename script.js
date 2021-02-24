@@ -17,7 +17,8 @@ function clearAll() {
     secondNumber = '';
     opperator = '';
     answer = '';
-    display.textContent = '';
+    display.textContent = 0;
+    error.textContent = '';
 }
 
 /***************** function deletes the last input from display/array ******************/
@@ -65,31 +66,33 @@ function createOperator(char) {
         clearError();
         pushToArray(number);
         pushToArray(char);
-        number = '';                    //reset number if added to array
+        number = '';                //reset number if added to array
         printArray();
     }                 
 }
 
-/********* function clears error at bottom of screen ***********/
+/********* function clears error at bottom of screen *********/
 function clearError() {
     error.textContent = '';
 }
 
-function pushToArray(v) {
-    arr.push(v);
+/********* function ads elment to end of array *********/
+function pushToArray(element) {
+    arr.push(element);
     number = '';
     printArray();
 }
 
+/********* function prints array (used to show array in main display) *********/
 function printArray() {
     let str = '';
     for(let i = 0; i < arr.length; i++) {
         str += arr[i];
     }
     display.textContent = str + number;
-    //console.log(arr);
 }
 
+/********* function controls main calculations of calculator *********/
 function equals() {
     arr.push(number);
     number = '';
@@ -100,7 +103,6 @@ function equals() {
         secondNumber = arr.shift();
         answer = operate(opperator, firstNumber, secondNumber);
         display.textContent = answer;        
-        console.log(arr);
     } else {
         firstNumber = answer;
         secondNumber = arr.shift();
@@ -108,9 +110,9 @@ function equals() {
         answer = operate(opperator, firstNumber, secondNumber);
         display.textContent = answer;
     }
-
 }
 
+/********* function returns basic math calculations *********/
 function operate(opp, a, b) {
     a = Number(a);
     b = Number(b);
@@ -130,131 +132,3 @@ function operate(opp, a, b) {
             break;
     }
 }
-
-/*
-let tempNumber = '';
-let displayNum = '';
-let firstNumber = '';
-let secondNumber = '';
-let opperator = '';
-let answer = 0;
-let count = 0;
-
-const display = document.getElementById("displayP");
-const subDisplay = document.getElementById("sub-display");
-
-//returns sum of two numbers
-function add(a, b) {
-    int1 = a + b;
-    return int1;
-}
-//returns difference of two numbers
-function subtract(a, b) {
-    int1 = a - b;
-    return int1;
-}
-//returns product of two numbers
-function multiply(a, b) {
-    int1 = a * b;
-    return int1;
-}
-//returns division of two numbersv
-function divide(a, b) {
-    int1 = a / b;
-    return int1;
-}
-//reset all variables (clear)
-function clearAll() {
-    tempNumber = '';
-    firstNumber = '';
-    secondNumber = '';
-    displayNum = '';
-    opperator = '';
-    display.textContent = 0;
-    subDisplay.textContent = "";
-}
-//displays
-function displayNumber(num) {
-    tempNumber += num;
-    displayNum += num + " ";
-    display.textContent = tempNumber;
-}
-//adds opperator to the display
-function displayOpperator(char) {
-    opperator = char;
-    firstNumber = tempNumber;
-    displayNum += char + " ";
-    tempNumber = '';   
-    subDisplay.textContent = firstNumber + " " + opperator;
-    display.textContent = tempNumber;
-}
-//main display output
-function displayResult() {
-    secondNumber = tempNumber;
-    subDisplay.textContent = firstNumber + " " + opperator + " " + secondNumber + " =";
-    operate(opperator, firstNumber, secondNumber);
-}
-//add decimal to number
-function addDecimal() {
-    tempNumber += ".";
-    displayNum += ".";
-    display.textContent = tempNumber;
-}
-//remove last digit from primary display
-function deleteLast() {
-    tempNumber = tempNumber.slice(0, -1);
-    displayNum = displayNum.slice(0, -1);
-    display.textContent = tempNumber;
-}
-//calls appropriate math function
-function operate(opp, a, b) {
-    a = Number(a);
-    b = Number(b);
-
-    switch(opperator) {
-        case '+':
-            answer = add(a, b);
-            display.textContent = answer;
-            break;
-        case '-':
-            answer = subtract(a, b);
-            display.textContent = answer;
-            break;
-        case '/':
-            answer = divide(a, b);
-            display.textContent = answer;
-            break;
-        case '*':
-            answer = multiply(a, b);
-            display.textContent = answer;
-            break;
-    }
-}
-*/
-
-/*
-function equals() {
-    arr.push(number);
-    number = '';
-
-    if(Number(arr[0]) && !Number(arr[1]) && Number(arr[2])) {
-        firstNumber = arr.shift();
-        opperator = arr.shift();
-        secondNumber = arr.shift();
-        answer = operate(opperator, firstNumber, secondNumber);
-        display.textContent = answer;        
-        //console.log(firstNumber);
-        //console.log(arr);
-        pushToArray(answer);
-        console.log(arr);
-    } else {
-        firstNumber = answer;
-        secondNumber = arr.shift();
-        opperator = arr.shift();
-        answer = operate(opperator, firstNumber, secondNumber);
-        display.textContent = answer;
-        pushToArray(answer);
-    }
-
-}
-*/

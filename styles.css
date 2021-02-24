@@ -11,7 +11,7 @@ h1 {
 #container {
     width: 500px;
     height: 620px;
-    background-color: rgb(43, 41, 41);
+    background-color: rgb(61, 59, 59);
     margin: 0 auto;
     border: 3px solid black;
     border-radius: 8px;
@@ -55,31 +55,49 @@ h1 {
     width: 90px;
     height: 70px;
     margin: 17px 5px 0 5px;
-    background-color: white;
+    background-color: rgb(235, 235, 235);
     border: 1px solid black;
     border-radius: 6px;
     align-items: center;
     cursor: pointer;
     font-size: 2em;
 }
+.calc-button:hover {
+    background-color: rgb(255, 255, 255);
+
+}
 #clear {
     width: 200px;
     background-color: rgb(194, 62, 62);
 }
+#clear:hover {
+    background-color: rgb(214, 82, 82);
+}
 #equals {
     width: 200px;
+    background-color: rgb(51, 172, 51);
+}
+#equals:hover {
+    background-color: rgb(71, 192, 71);
 }
 #delete {
     background-color: rgb(80, 136, 168);
 }
-#equals {
-    background-color: rgb(51, 172, 51);
+#delete:hover {
+    background-color: rgb(100, 156, 188);
 }
 #decimal {
     background-color: rgb(130, 101, 211);
 }
+#decimal:hover {
+    background-color: rgb(150, 121, 231);
+}
 #add, #multiply, #divide, #subtract {
     background-color: rgb(187, 119, 42);
+}
+#add:hover, #multiply:hover, #divide:hover, #subtract:hover {
+    background-color: rgb(207, 139, 62);
+
 }
 #error {
     color: white;
